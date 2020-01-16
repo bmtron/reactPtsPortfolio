@@ -8,11 +8,12 @@ export class LandingCanvas extends PtsCanvas {
         super();
         this.pts = new Group();
     }
-    
+
     _create() {
         this.pts = Create.distributeRandom(this.space.innerBound, 175);
     }
     animate (time, ftime, space) {
+        
         this.pts.rotate2D(0.0004, space.center);
         this.pts.sort( (a,b) => 
         a.$subtract(this.space.pointer).magnitudeSq() - b.$subtract(this.space.pointer).magnitudeSq()
@@ -40,7 +41,7 @@ export class LandingCanvas extends PtsCanvas {
     }
 
     action (type, x, y, event) {
-        
+
     }
 
     resize (size, event) {

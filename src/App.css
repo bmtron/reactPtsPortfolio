@@ -56,10 +56,15 @@ html {
   padding: 10px;
   padding-top: 5px;
   text-align: center;
-  
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  background: linear-gradient(to right, rgba(105, 129, 143, 0.363) 50%, transparent 50%);
+  
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .3s ease-out;
 }
 .to_projects p {
   margin-top: 0px;
@@ -68,6 +73,7 @@ html {
 }
 .to_projects:hover {
   cursor: pointer;
+  background-position: left bottom;
 }
 .arrow_rotate {
   position: relative;

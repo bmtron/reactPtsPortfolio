@@ -1,38 +1,85 @@
+
 .App {
   text-align: center;
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
+html {
+  height: 100vh;
+}
+.canvas_container {
+  height: 100vh;
+}
+.Custom_Galaxy{
+  height: 100vh;
+}
+.name_title {
+  position: absolute;
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.name, .title {
+  text-align: center;
+}
+.name {
+  margin-bottom: 0px;
+  font-size: 80px;
+  margin-top: 0px;
+}
+.title {
+  
+  margin-top: 10px;
+  font-size: 40px;
+}
+.name:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  animation: ease-in;
+  border-bottom: 1px solid #7FA8B1;
+}
+.to_projects {
+  position: absolute;
   color: white;
+  border: 1px solid #9DD0CC;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -70%);
+  font-size: 30px;
+  padding: 10px;
+  padding-top: 5px;
+  text-align: center;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
+.to_projects p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.to_projects:hover {
+  cursor: pointer;
 }
+.arrow_rotate {
+  position: relative;
+  top: 4px;
+  transform: rotate(0deg);
+  transition: ease-in .2s;
+}
+.arrow_rotate:hover {
+    transform: rotate(90deg);
+    transition: ease-in .2s;
+}
+.blah {
+  height: 100vh;
+}
+/*#69818F*/

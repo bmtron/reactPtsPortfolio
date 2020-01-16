@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import {LandingCanvas} from './CustomCanvas';
 
 import './App.css';
@@ -25,6 +26,7 @@ class App extends Component {
     let element = document.getElementById("arrow_rotate");
     element.style = this.state.styleOut;
   }
+  
   render() {
     return (
       <div className="canvas_container">
@@ -33,7 +35,7 @@ class App extends Component {
           <p className="title">Full Stack Web Developer</p>
         </section>
         <section className="to_projects" id="to_projects" onClick={() => this.scrollToProjects()} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
-        <LandingCanvas name="Custom_Galaxy" background="#161416"/>
+        <LandingCanvas name="Custom_Galaxy" touch="false" background="#161416"/>
         <section className="blah" id="blah">Blah blah blah</section>
       </div>
     )

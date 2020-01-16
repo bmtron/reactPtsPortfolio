@@ -13,6 +13,9 @@
 ::-webkit-scrollbar-track {
   background-color: #161416;
 }
+canvas {
+  z-index: -1;
+}
 html {
   height: 100vh;
 }

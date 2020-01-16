@@ -8,7 +8,7 @@ export class LandingCanvas extends PtsCanvas {
         super();
         this.pts = new Group();
     }
-
+    
     _create() {
         this.pts = Create.distributeRandom(this.space.innerBound, 175);
     }
@@ -40,7 +40,7 @@ export class LandingCanvas extends PtsCanvas {
     }
 
     action (type, x, y, event) {
-
+        
     }
 
     resize (size, event) {

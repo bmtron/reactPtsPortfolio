@@ -44,21 +44,25 @@ class App extends Component {
   
   render() {
     return (
-      <div className="canvas_container">
+      <div>
         <section className="name_title">
-          <p className="name">Brendan Meehan</p>
+          <p className="name">Brendan <span className="test">Meehan</span></p>
           <p className="title">Full Stack Web Developer</p>
         </section>
         <section className="to_projects" id="to_projects" onClick={() => this.scrollToProjects()} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
-        {this.state.windowSize > 600 ? <LandingCanvas name="Custom_Galaxy" background="#161416"/> : <LandingCanvas name="Custom_Galaxy" background="#161416"/>}
+        <div className="canvas_container">
+        <div className="canvas_cover"></div>
+          <LandingCanvas name="Custom_Galaxy" background="#161416"/>
+          
+        </div>
         <section className="blah" id="projects">
          <section className="projects_container">
           {this.state.projectList.list.map((item, index) => {
               if ((index + 2) % 2 === 0) {
-                return <Slide left><Project key={index} {...item} gridId={index}/></Slide>
+                return <Slide key={index} left><Project {...item} gridId={index}/></Slide>
               }
               else {
-                return <Slide right><Project key={index} {...item} gridId={index}/></Slide>
+                return <Slide key={index} right><Project key={index} {...item} gridId={index}/></Slide>
               }
             })}
          </section>

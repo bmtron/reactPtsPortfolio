@@ -22,8 +22,16 @@ canvas {
 html {
   height: 100vh;
 }
+.canvas_cover {
+  display: none;
+}
 .canvas_container {
   height: 100vh;
+  
+  z-index: 50;
+}
+.test {
+  color: red;
 }
 .Custom_Galaxy{
   height: 100vh;
@@ -47,6 +55,9 @@ html {
   font-size: 80px;
   margin-top: 0px;
 }
+.bbb {
+  color: rgb(157, 208, 204);
+}
 .title {
   
   margin-top: 10px;
@@ -58,7 +69,7 @@ html {
   margin: 0 auto;
   width: 100%;
   animation: ease-in;
-  border-bottom: 1px solid #7FA8B1;
+  border-bottom: 1px solid rgb(127, 168, 177);
 }
 .to_projects {
   position: absolute;
@@ -114,6 +125,25 @@ html {
 }
 .project_item {
   height: 400px;
+}
+@media screen and (max-width: 600px) {
+  .canvas_cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .name {
+    font-size: 40px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .to_projects {
+    z-index: 50;
+    font-size: 24px;
+  }
+  
 }
 
 /*#69818F*/

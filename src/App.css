@@ -1,7 +1,10 @@
 
+* {
+  font-family: 'Titillium Web', sans-serif;
+}
 .App {
   text-align: center;
-  font-family: 'Titillium Web', sans-serif;
+  
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -71,17 +74,15 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  
   background: linear-gradient(to right, rgba(105, 129, 143, 0.363) 50%, transparent 50%);
-  
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all .3s ease-out;
+  border-radius: 5px;
 }
 .to_projects p {
   margin-top: 0px;
   margin-bottom: 0px;
-  
 }
 .to_projects:hover {
   cursor: pointer;
@@ -97,7 +98,22 @@ html {
     transform: rotate(90deg);
     transition: ease-in .2s;
 }
-.blah {
+#projects {
   height: 100vh;
+  background: linear-gradient(#161416 5%, white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.projects_container {
+  width: 50%;
+  margin-right: 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-gap: 10px;
+}
+.project_item {
+  height: 400px;
+}
+
 /*#69818F*/

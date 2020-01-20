@@ -36,7 +36,7 @@ export class LandingCanvas extends PtsCanvas {
                     this.form.stroke(`rgba(255,255,255, ${1 - ratio})`).line( [this.pts[i+2], this.pts[i + 3]]);
 
                 }
-                this.form.fillOnly(`rgba(255,255,255)`, ratio * 2).circle(c);
+                this.form.fillOnly(`rgb(255,255,255)`, ratio * 2).circle(c);
                 this.form.fill(`rgba(127, 168, 177, ${ratio})`).circle(c2);
                 //form.stroke("rgba(255,255,255, .2").line([c])
             });

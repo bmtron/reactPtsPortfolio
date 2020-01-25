@@ -16,8 +16,8 @@ class App extends Component {
       windowSize: 0,
       mobile: false,
       projectList: list,
-      prevRatioEven: 0,
-      prevRatioOdd: 0,
+      prevRatio0: 0,
+      prevRatio1: 0,
       prevRatio2: 0,
       prevRatio3: 0
     }
@@ -52,9 +52,9 @@ class App extends Component {
     thresholds.push(0);
     return thresholds;
   }
-  handleObserverEven = (entries, observer) => {
+  handleObserver0 = (entries, observer) => {
     entries.forEach((entry) => {
-      if (entry.intersectionRatio > this.state.prevRatioEven) {
+      if (entry.intersectionRatio > this.state.prevRatio0) {
         entry.target.style.cssText= "display: block";
         entry.target.style.animation = "fadein"
         entry.target.style.transition = "opacity 1.5s ease-in";
@@ -66,9 +66,9 @@ class App extends Component {
     })
   }
 
-  handleObserverOdd = (entries, observer) => {
+  handleObserver1 = (entries, observer) => {
     entries.forEach((entry) => {
-      if (entry.intersectionRatio > this.state.prevRatioOdd) {
+      if (entry.intersectionRatio > this.state.prevRatio1) {
         entry.target.style.cssText = "display: block";
         entry.target.style.transition = "1.5s ease-in";
         entry.target.style.transitionDelay = ".25s";
@@ -77,7 +77,7 @@ class App extends Component {
 
       }
       this.setState({
-        prevRatioOdd: entry.intersectionRatio
+        prevRatio1: entry.intersectionRatio
       })
     });
     
@@ -127,8 +127,8 @@ class App extends Component {
     let targetGrid2 = document.querySelector("#grid2");
     let targetGrid3 = document.querySelector("#grid3");
 
-    this.observer = new IntersectionObserver(this.handleObserverEven, options);
-    this.observer2 = new IntersectionObserver(this.handleObserverOdd, options);
+    this.observer = new IntersectionObserver(this.handleObserver0, options);
+    this.observer2 = new IntersectionObserver(this.handleObserver1, options);
     this.observer3 = new IntersectionObserver(this.handleObserver2, options);
     this.observer4 = new IntersectionObserver(this.handleObserver3, options);
 

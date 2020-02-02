@@ -51,9 +51,9 @@ class App extends Component {
         </section>
         <section className="to_projects" id="to_projects" onClick={() => this.scrollToProjects()} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
         <div className="canvas_container">
-        <div className="canvas_cover"></div>
+        
           <LandingCanvas name="Custom_Galaxy" background="#161416"/>
-          
+          <div className="mobile_grab_bar">Grab Here</div>
         </div>
         <section className="blah" id="projects">
          <section className="projects_container">

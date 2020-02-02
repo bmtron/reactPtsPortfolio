@@ -8,13 +8,11 @@ export class LandingCanvas extends PtsCanvas {
         super();
         this.pts = new Group();
         this.pts2 = new Group();
-        this.pointerLoc = null;
     }
 
     _create() {
         this.pts = Create.distributeRandom(this.space.innerBound, 250);
-        this.pointerLoc = this.space.pointer;
-        console.log(this.pointerLoc)
+        
     }
     animate (time, ftime, space) {
         

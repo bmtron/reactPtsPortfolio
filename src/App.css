@@ -106,15 +106,41 @@ html {
     transform: rotate(90deg);
     transition: ease-in .2s;
 }
+.nav_bar {
+  height: 45px;
+  display: none;
+  position: fixed;
+  top: 0;
+  background: black;
+  color: rgb(127, 168, 177);
+  width: 100%;
+  border-bottom: 3px solid #7FA8B1;
+  z-index: 6000;
+}
+.inner_nav_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 35%;
+}
+.inner_nav_container p {
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+.inner_nav_container p:hover {
+  cursor: pointer;
+}
 .top_project {
   height: 100vh;
-  background: linear-gradient(#161416 5%, white);
+  background: linear-gradient(#161416 0%, white);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .projects_container {
-  width: 1000px;
+  width: 80%;
   height: 1000px;
   margin-right: 0px;
   display: flex;
@@ -129,7 +155,30 @@ html {
 }
 .project_item {
   height: 400px;
-  width: 400px;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+}
+.project_info {
+  width: 50%;
+}
+.project_info p {
+  font-size: 18px;
+}
+a:link {
+  text-decoration: none;
+}
+
+.project_screenshot {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.screenshot_image {
+  max-width: 100%;
+  max-height: 100%;
 }
 .project_view_page {
   height: 100vh;
@@ -137,44 +186,28 @@ html {
   justify-content: center;
   align-items: center;
 }
-.project_item:hover {
-  
-}
 #grid {
-  border: 1px solid black;
-  background-color: black;
-  color: white;
+
   opacity: 0;
-}
-#grid:hover {
-  height: 500px;
-  width: 500px;
 }
 #grid1 {
-  border: 1px solid black;
-
-  background-color: black;
-  color: white;
   opacity: 0;
-
 }
 #grid2 {
-  border: 1px solid black;
-
-  background-color: black;
-  color: white;
   opacity: 0;
-
-
 }
 #grid3 {
-  border: 1px solid black;
-
-  background-color: black;
-  color: white;
   opacity: 0;
-
-
+}
+@keyframes slidedown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @keyframes fadein {
   from {

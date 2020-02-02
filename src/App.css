@@ -106,7 +106,7 @@ html {
     transform: rotate(90deg);
     transition: ease-in .2s;
 }
-#projects {
+.top_project {
   height: 100vh;
   background: linear-gradient(#161416 5%, white);
   display: flex;
@@ -114,59 +114,66 @@ html {
   align-items: center;
 }
 .projects_container {
-  width: 500px;
-  height: 800px;
+  width: 1000px;
+  height: 1000px;
   margin-right: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  display: flex;
-  grid-template-columns: repeat(2, 2fr);
+  
 }
 .box_wrapper {
   display: flex;
   margin-top: 10px;
 }
 .project_item {
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
 }
-
+.project_view_page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project_item:hover {
+  
+}
 #grid {
   border: 1px solid black;
-  height: 200px;
   background-color: black;
   color: white;
   opacity: 0;
-  margin-right: 5px;
 }
-
+#grid:hover {
+  height: 500px;
+  width: 500px;
+}
 #grid1 {
   border: 1px solid black;
-  height: 200px;
+
   background-color: black;
   color: white;
   opacity: 0;
-  margin-left: 5px;
 
 }
 #grid2 {
   border: 1px solid black;
-  height: 200px;
+
   background-color: black;
   color: white;
   opacity: 0;
-  margin-right: 5px;
+
 
 }
 #grid3 {
   border: 1px solid black;
-  height: 200px;
+
   background-color: black;
   color: white;
   opacity: 0;
-  margin-left: 5px;
+
 
 }
 @keyframes fadein {

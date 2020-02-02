@@ -24,7 +24,7 @@ class App extends Component {
     window.addEventListener("resize", this.update)
   }
   scrollToProjects = () => {
-    let element = document.getElementById("projects");
+    let element = document.getElementById("top_project");
 
     element.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
@@ -58,6 +58,9 @@ class App extends Component {
         entry.target.style.cssText= "display: block";
         entry.target.style.animation = "fadein"
         entry.target.style.transition = "opacity 1.5s ease-in";
+        entry.target.style.transitionDelay = ".25s";
+        entry.target.style.height = "1s";
+        entry.target.style.width = "1s";
         entry.target.style.opacity = "1";
       };
       this.setState({
@@ -72,6 +75,8 @@ class App extends Component {
         entry.target.style.cssText = "display: block";
         entry.target.style.transition = "1.5s ease-in";
         entry.target.style.transitionDelay = ".25s";
+        entry.target.style.height = "1s";
+        entry.target.style.width = "1s";
         entry.target.style.opacity = "1"
         entry.target.style.animation = "fadein"
 
@@ -87,7 +92,9 @@ class App extends Component {
       if (entry.intersectionRatio > this.state.prevRatio2) {
         entry.target.style.cssText = "display: block";
         entry.target.style.transition = "1.5s ease-in";
-        entry.target.style.transitionDelay = ".5s"
+        entry.target.style.transitionDelay = ".25s"
+        entry.target.style.height = "1s";
+        entry.target.style.width = "1s";
         entry.target.style.opacity = "1"
         entry.target.style.animation = "fadein"
 
@@ -103,9 +110,12 @@ class App extends Component {
       if (entry.intersectionRatio > this.state.prevRatio3) {
         entry.target.style.cssText = "display: block";
         entry.target.style.transition = "1.5s ease-in";
-        entry.target.style.opacity = "1"
-        entry.target.style.transitionDelay = ".75s"
+        entry.target.style.opacity = "1";
+        entry.target.style.height = "1s";
+        entry.target.style.width = "1s";
+        entry.target.style.transitionDelay = ".25s"
         entry.target.style.animation = "fadein"
+
 
       }
       this.setState({
@@ -150,25 +160,24 @@ class App extends Component {
         <div className="canvas_container">
         
           <LandingCanvas name="Custom_Galaxy" background="#161416"/>
-<<<<<<< HEAD
+
           <div className="mobile_grab_bar">Grab Here</div>
-=======
->>>>>>> 5abc9833c16b9efb2e1174a9e06bc3ff6f9d4758
+
         </div>
         <div className="background_canvas_test"></div>
-        <section className="blah" id="projects">
-         <section className="projects_container">
-          
-            <section className="box_wrapper">
-              <Project observerId={"grid"} {...this.state.projectList.list[0]}/>
-              <Project observerId={"grid1"} {...this.state.projectList.list[1]}/>
-            </section>
-            <section className="box_wrapper">
-              <Project observerId={"grid2"} {...this.state.projectList.list[2]}/>
-              <Project observerId={"grid3"} {...this.state.projectList.list[3]}/>
-            </section>
-         </section>
-        </section>
+        
+              <section className="project_view_page top_project" id="top_project">
+                <Project observerId={"grid"} {...this.state.projectList.list[0]}/>
+              </section>
+              <section className="project_view_page">
+                <Project observerId={"grid1"} {...this.state.projectList.list[1]}/>
+              </section>
+              <section className="project_view_page">
+                <Project observerId={"grid2"} {...this.state.projectList.list[2]}/>
+                </section>
+              <section className="project_view_page">
+                <Project observerId={"grid3"} {...this.state.projectList.list[3]}/>
+              </section>
         <section className="test_space">
           <p>TEST SCREEN</p>
         </section>

@@ -155,7 +155,7 @@ html {
 }
 .project_item {
   height: 400px;
-  width: 85%;
+  width: 65%;
   display: flex;
   flex-direction: row;
 }
@@ -283,7 +283,23 @@ a:link {
     z-index: 50;
     font-size: 24px;
   }
-  
+  .project_screenshot {
+    width: 100%;
+  }
+  .screenshot_image {
+    max-width: 100%;
+    
+  }
+  .project_item {
+    flex-direction: column;
+  }
+  .project_info {
+    width: 100%;
+  }
+  .project_links {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 /*#69818F*/

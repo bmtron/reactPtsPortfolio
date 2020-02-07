@@ -30,6 +30,19 @@ class App extends Component {
       windowHeight: window.innerHeight
     })
   }
+  SmoothVerticalScrolling(time) {
+    let ele = document.getElementById('top_project');
+    var eTop = ele.getBoundingClientRect().top;
+    var eAmt = eTop / 100;
+    var curTime = 0;
+    while (curTime <= time) {
+        window.setTimeout(function() {
+          window.scrollBy(0, eAmt)
+        }, curTime);
+        curTime += time / 100;
+    }
+}
+  
   scrollToProjects = () => {
     let element = document.getElementById("top_project");
 
@@ -202,27 +215,26 @@ class App extends Component {
           <p className="name">Brendan <span className="test">Meehan</span></p>
           <p className="title">Full Stack Web Developer</p>
         </section>
-        <section className="to_projects" id="to_projects" onClick={() => this.scrollToProjects()} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
+        <section className="to_projects" id="to_projects" onClick={() => this.SmoothVerticalScrolling(350)} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
         <div className="canvas_container">
         
           <LandingCanvas name="Custom_Galaxy" background="#161416"/>
 
         </div>
         <section className="project_view_page top_project" id="top_project">
-        
           <Project observerId={"grid"} {...this.state.projectList.list[0]} newId="test"/>
         </section>
         <section className="project_view_page">
           <Project observerId={"grid1"} {...this.state.projectList.list[1]} newId="test1"/>
         </section>
-        <section className="project_view_page">
+        <section className="project_view_page gray_back">
           <Project observerId={"grid2"} {...this.state.projectList.list[2]} newId="test2"/>
           </section>
         <section className="project_view_page">
           <Project observerId={"grid3"} {...this.state.projectList.list[3]} newId="test3"/>
         </section>
 
-        <section className="test_space">
+        <section className="test_space gray_back">
           <p>TEST SCREEN</p>
         </section>
       </div>

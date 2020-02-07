@@ -134,7 +134,7 @@ html {
 }
 .top_project {
   height: 100vh;
-  background: linear-gradient(#161416 0%, white);
+  background: linear-gradient(#161416 0%, white 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,7 +168,9 @@ html {
 a:link {
   text-decoration: none;
 }
-
+.gray_back {
+  background-color: rgb(241, 241, 241);
+}
 .project_screenshot {
   width: 50%;
   display: flex;
@@ -177,14 +179,34 @@ a:link {
   opacity: 0;
 }
 .screenshot_image {
-  max-width: 100%;
+  max-width: 800px;
   max-height: 100%;
+  
 }
 .project_view_page {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.live_link, .repo_link {
+  background-color: #161416;
+  border: none;
+  color: white;
+  padding: 10px 34px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all .3s ease-out;
+}
+.live_link:hover, .repo_link:hover {
+  background-position: left bottom;
+  background-color: #7FA8B1 ;
+  color: black;
 }
 #grid {
 

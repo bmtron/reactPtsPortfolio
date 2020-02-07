@@ -18,8 +18,8 @@ export default class Project extends Component {
                         <p>{this.props.description}</p>
                     </section>
                     <section className="project_links">
-                        <a href={this.props.link}>Live</a>
-                        <a href={this.props.repo}>Repo</a>
+                        <a href={this.props.link} class="live_link" target="_blank" rel="noopener noreferrer">Live</a>
+                        <a href={this.props.repo} class="repo_link" target="_blank" rel="noopener noreferrer">Repo</a>
                     </section>
                </section>
                 <section className="project_screenshot" id={this.props.newId}>

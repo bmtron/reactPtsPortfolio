@@ -5,6 +5,7 @@ import Project from './Project';
 import list from './project-src';
 import NavBar from './NavBar';
 
+
 import './App.css';
 
 class App extends Component {
@@ -24,13 +25,8 @@ class App extends Component {
       windowHeight: 0,
       lastYPos: 0
     }
-    window.addEventListener("resize", this.update)
   }
-  updateWindowHeight = () => {
-    this.setState({
-      windowHeight: window.innerHeight
-    })
-  }
+  
   SmoothVerticalScrolling(ele, time) {
     
     var eTop = ele.getBoundingClientRect().top;
@@ -133,7 +129,7 @@ scrollToAbout = () => {
   }
   componentDidMount() {
     this.update();
-    this.updateWindowHeight();
+    
     window.addEventListener('scroll', this.displayNav);
     let options = {
       root: null,

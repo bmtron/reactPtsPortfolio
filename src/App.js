@@ -21,7 +21,8 @@ class App extends Component {
       prevRatio2: 0,
       prevRatio3: 0,
       navRatio: 0,
-      windowHeight: 0
+      windowHeight: 0,
+      lastYPos: 0
     }
     window.addEventListener("resize", this.update)
   }
@@ -30,9 +31,10 @@ class App extends Component {
       windowHeight: window.innerHeight
     })
   }
-  SmoothVerticalScrolling(time) {
-    let ele = document.getElementById('top_project');
+  SmoothVerticalScrolling(ele, time) {
+    
     var eTop = ele.getBoundingClientRect().top;
+    console.log(ele.getBoundingClientRect())
     var eAmt = eTop / 100;
     var curTime = 0;
     while (curTime <= time) {
@@ -42,11 +44,19 @@ class App extends Component {
         curTime += time / 100;
     }
 }
-  
+scrollToAbout = () => {
+  let element = document.getElementById("about");
+  this.SmoothVerticalScrolling(element, 500);
+}
+  scrollToHome = () => {
+    let element = document.getElementById("canvas_container");
+
+    this.SmoothVerticalScrolling(element, 350);
+  }
   scrollToProjects = () => {
     let element = document.getElementById("top_project");
 
-    element.scrollIntoView({block: 'start', behavior: 'smooth'});
+    this.SmoothVerticalScrolling(element, 350);
   }
   update = () => {
     this.setState({
@@ -107,57 +117,24 @@ class App extends Component {
     });
     
   }
-  handleObserver2= (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio > this.state.prevRatio2) {
-        entry.target.style.background = "transparent";
-        entry.target.style.transition = "opacity 1.5s ease-in";
-        entry.target.style.transitionDelay = ".25s"
-        entry.target.style.height = "1s";
-        entry.target.style.width = "1s";
-        entry.target.style.opacity = "1"
-        entry.target.style.animation = "fadein"
+  
+  displayNav = () => {
+    let element = document.getElementById("canvas_container");
+    let navbar = document.getElementById("nav_bar");
+    let n = element.getBoundingClientRect().height;
+    let currentYPos = window.scrollY;
 
-      }
-      this.setState({
-        prevRatio2: entry.intersectionRatio
-      })
-    });
-    
-  }
-  handleObserver3 = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio > this.state.prevRatio3) {
-        entry.target.style.background = "transparent";
-        entry.target.style.transition = "opacity 1.5s ease-in";
-        entry.target.style.opacity = "1";
-        entry.target.style.height = "1s";
-        entry.target.style.width = "1s";
-        entry.target.style.transitionDelay = ".25s"
-        entry.target.style.animation = "fadein"
+    if (window.scrollY > n) {
+      console.log(test)
+      navbar.style.display = "flex";
+      navbar.style.alignItems = "center";
+    }
 
-      }
-      this.setState({
-        prevRatio3: entry.intersectionRatio
-      })
-    });
   }
-  handleNavObserver = (entries, observer) => {
-    let nav = document.querySelector('#nav_bar')
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio > this.state.navRatio) {
-        nav.style.display = "flex";
-        nav.style.alignItems = "center";
-      }
-      this.setState({
-        navRatio: entry.intersectionRatio
-      })
-    })
-  }
-
   componentDidMount() {
     this.update();
     this.updateWindowHeight();
+    window.addEventListener('scroll', this.displayNav);
     let options = {
       root: null,
       rootMargin: '0px',
@@ -190,9 +167,9 @@ class App extends Component {
     this.imageObserver2 = new IntersectionObserver(this.handleObserver1, options);
     this.imageObserver3 = new IntersectionObserver(this.handleObserver1, options);
 
-    this.navObserver = new IntersectionObserver(this.handleNavObserver, navOptions);
+    
 
-    this.navObserver.observe(targetNav);
+    
     this.imageObserver.observe(targetImage1);
     this.imageObserver1.observe(targetImage2);
     this.imageObserver2.observe(targetImage3);
@@ -203,20 +180,18 @@ class App extends Component {
     this.observer3.observe(targetGrid2);
     this.observer4.observe(targetGrid3);
 
-
-
   }
   
   render() {
     return (
       <div>
-        <NavBar></NavBar>
+        <NavBar homeScroll={this.scrollToHome} projectsScroll={this.scrollToProjects} aboutScroll={this.scrollToAbout}></NavBar>
         <section className="name_title">
           <p className="name">Brendan <span className="test">Meehan</span></p>
           <p className="title">Full Stack Web Developer</p>
         </section>
-        <section className="to_projects" id="to_projects" onClick={() => this.SmoothVerticalScrolling(350)} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
-        <div className="canvas_container">
+        <section className="to_projects" id="to_projects" onClick={() => this.scrollToProjects()} onMouseEnter={() => this.mouseIn()} onMouseLeave={() => this.mouseOut()}><p>Projects</p><i className="material-icons arrow_rotate" id="arrow_rotate">arrow_forward_ios</i></section>
+        <div className="canvas_container" id="canvas_container">
         
           <LandingCanvas name="Custom_Galaxy" background="#161416"/>
 
@@ -234,8 +209,21 @@ class App extends Component {
           <Project observerId={"grid3"} {...this.state.projectList.list[3]} newId="test3"/>
         </section>
 
-        <section className="test_space gray_back">
-          <p>TEST SCREEN</p>
+        <section className="about gray_back" id="about">
+          <h2>About Me</h2>
+          <section className="about_info">
+          
+              <img className="image_of_me" src={process.env.PUBLIC_URL + '/IMG_0722.jpg'} alt="Headshot of me!"></img>
+            
+            <section className="about_paragraphs">
+              <p>I am graduate of Thinkful's Full Stack web development program. Ever since I built my first computer, I have had a growing passion for technology in all its facets, but more specifically with learning how software functions. 
+              Solving unique problems in creative ways is what drives me, and the more I explored programming and software development, the more I fell in love with it.</p>
+            <p>
+              The process of turning an idea into code, and watching that code become a useful, hands on solution never ceases to excite me. 
+              Through building a multitude of well structured, reusable functions and crafting user friendly, accessible UI, I have taken my passion and put it to use, solving problems one web page at a time.
+            </p>
+            </section>
+          </section>
         </section>
       </div>
     )

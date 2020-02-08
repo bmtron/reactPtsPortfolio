@@ -16,6 +16,7 @@ export default class NavBar extends Component {
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
     }
+    
     handleScroll = () => {
         const currentYPos = window.scrollY;
 
@@ -31,9 +32,9 @@ export default class NavBar extends Component {
         return (
             <section className="nav_bar" id="nav_bar" style={ {transform: `translate(0, ${this.state.slideIn})`, transition: 'transform 90ms linear'}}>
                 <section className="inner_nav_container">
-                    <p>Home</p>
-                    <p>Projects</p>
-                    <p>About</p>
+                    <p onClick={() => this.props.homeScroll()}>Home</p>
+                    <p onClick={() => this.props.projectsScroll()}>Projects</p>
+                    <p onClick={() => this.props.aboutScroll()}>About</p>
                     <p>Contact</p>
                 </section>
             </section>
